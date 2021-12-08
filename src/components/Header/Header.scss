@@ -3,13 +3,12 @@
   height: 250px;
   background-image: url(https://www.pngplay.com/wp-content/uploads/11/Pokemon-GO-Logo-Free-PNG.png);
   background-repeat: no-repeat;
-  background-position: center;
-}
+  background-position: center 30px;
+};
 
 @media (max-width: 840px) {
   .header {
     height: 30vw;
-    background-position: center 3vw;
     background-size: 70vw;
-  }
-}
+  };
+};

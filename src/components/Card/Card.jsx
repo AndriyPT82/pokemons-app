@@ -5,7 +5,6 @@ import { getData } from '../../api/Api'
 import { Tags } from '../Tags';
 import './Card.scss';
 
-
 export function Card({ name, url }) {
 
   const [types, setTypes] = useState([])
@@ -23,10 +22,9 @@ export function Card({ name, url }) {
         "card",
         { "card--active": activeCardId === +id }
       )}
-      onClick={() => setEndPoint(id)}
+      onClick={() => setEndPoint(`pokemon/${id}`)}
     >
       <img
-
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
         onError={(e) => {
           e.target.onError = null;
@@ -34,10 +32,10 @@ export function Card({ name, url }) {
         }}
         alt={name}
       />
-      <h2 className="card__title">{name}</h2>
-      {
-        !!types.length && <Tags tags={types} />
-      }
+      <h3 className="card__title">
+        {name}
+      </h3>
+      <Tags tags={types} />
     </li>
   );
 };

@@ -63,7 +63,6 @@ export function Details({ id, types, stats, moves, weight, onSetDetails }) {
 
 
       </table>
-
     </div>
   );
 };

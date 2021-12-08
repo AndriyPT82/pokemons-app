@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Select } from './components/Select';
 import { Cards } from './components/Cards';
 import { Details } from './components/Details';
 import { Header } from './components/Header';
@@ -17,13 +18,15 @@ function App() {
   const [filterBy, setFilterBy] = useState(null);
   const [endPoint, setEndPoint] = useState(null);
 
-
   useEffect(() => {
-      getData('pokemon/?limit=12&offset=0').then(setCards)
+    getData('pokemon/?limit=12&offset=0').then(setCards)
   }, [])
 
   useEffect(() => {
-    if (!filterBy) return;
+    if (!filterBy) {
+      getData('pokemon/?limit=12&offset=0').then(setCards);
+      return;
+    }
     getData(`type/${filterBy}`).then(res => {
       const results = res.pokemon.reduce((arr, item) => [...arr, item.pokemon], [])
       setCards({ results })
@@ -32,14 +35,14 @@ function App() {
 
   useEffect(() => {
     if (!endPoint) return;
-    const f = +endPoint ? setDetails : setCards
-    getData(`pokemon/${endPoint}`).then(f)
+    getData(`${endPoint}`).then(res => res.id ? setDetails(res) : setCards(res))
   }, [endPoint])
 
   const activeCardId = details && details.id
-  
+
   return (
     <AppContext.Provider value={{
+      getData,
       setEndPoint,
       setFilterBy,
       activeCardId,
@@ -50,6 +53,7 @@ function App() {
         <div className="App__main">
           {!cards ? <CircularProgress /> : <>
             <div className="App__content-block">
+              <Select />
               <Cards cards={cards.results} />
               <div className="App__buttons">
                 <button

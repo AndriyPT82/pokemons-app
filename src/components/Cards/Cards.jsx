@@ -5,7 +5,7 @@ import './Cards.scss';
 export function Cards({ cards }) {
 
   return (
-    <ul className="cards">
+    <div className="cards">
       {
         cards.map(card => (
         <React.Fragment key={card.name}>
@@ -13,6 +13,6 @@ export function Cards({ cards }) {
         </React.Fragment>
         ))
       }
-    </ul>
+    </div>
   );
 };

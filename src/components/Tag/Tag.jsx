@@ -5,17 +5,19 @@ import './Tag.scss';
 
 export function Tag({ type }) {
 
-  const { setFilterBy } = useContext(AppContext)
+  const { setFilterBy, filterBy } = useContext(AppContext)
   const { name } = type;
+
   return (
-    <li
+    <button
       className="tag"
+      disabled={filterBy === name}
       onClick={(event) => {
-        event.stopPropagation()
-        setFilterBy(name)
+        event.stopPropagation();
+        setFilterBy(`${name}`)
       }}
     >
       {name}
-    </li>
+    </button>
   );
 };

@@ -1,10 +1,8 @@
-import { Tabs } from '../Tabs/Tabs';
 import './Header.scss';
 
-export function Header() {
+export const Header = () => {
   return (
     <div className="header">
-      <Tabs />
     </div>
   );
 };
