@@ -1,0 +1,34 @@
+td {
+  border: 1px solid #000;
+  padding: 5px 20px;
+}
+th {
+  border: 1px solid #000;
+  width: 100%;
+}
+
+.details {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  width: 300px;
+  min-height: 550px;
+  height: max-content;
+  padding: 20px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 10px rgb(82, 82, 82);
+
+  &__closer {
+    cursor: pointer;
+  }
+
+  & img {
+    object-fit: contain;
+    flex-grow: 1;
+    width: 100%;
+  }
+}

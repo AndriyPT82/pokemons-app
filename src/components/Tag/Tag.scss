@@ -1,0 +1,16 @@
+.tag {
+  border: 1px solid rgb(164, 164, 164);
+  padding: 5px 10px;
+  width: 100%;
+  max-width: 100px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.701);
+  
+  &:hover {
+    background-color: rgba(219, 255, 208, 0.5);
+  }
+  &:active {
+    background-color: rgba(219, 255, 208, 0.2);
+  }
+
+}
